@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_installl:
+  - docker image build -t go-app -f Dockerfile.dev .
+
+script:
+  - docker container run go-app go test -v
